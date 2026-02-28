@@ -14,6 +14,8 @@
 ## **Issue Body**
 
 **Summary**
+This repository contains the Proof of Concept (PoC) and detailed analysis for a memory leak vulnerability found in NanoMQ. The issue allows remote attackers to cause a Denial of Service (DoS) by exhausting system memory via specific QoS MQTT messages.
+
 I have conducted an in-depth analysis of a memory leak phenomenon in Nanomq. Through dynamic instrumentation and code review, I identified a critical resource leak path triggered when the **runtime configuration enables SQLite (`sqlite.enable=true`) but the binary is compiled without SQLite support (`NNG_SUPP_SQLITE` undefined)**.
 
 **To keep this issue concise, I have summarized the key findings below. For the full technical breakdown (including detailed ASAN traces, lifecycle diagrams, and instrumentation logs), please refer to the attached `Analysis_Report.md`.**
