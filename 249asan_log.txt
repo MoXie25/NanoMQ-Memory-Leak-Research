@@ -1,0 +1,45 @@
+ubuntu1@ubuntu:~/Desktop/mqttDataTest/Crash-test/nanomq/build$ ./nanomq/nanomq start --conf ./nanomq.conf
+path :/home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/build/nanomq/nanomq
+Set new conf path from env: (null)
+Abort finding default config path
+2026-01-28 12:27:21 [6667] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:1286  broker: NanoMQ (ver 0.24.9) Serving HTTP Server on http://(null):8081
+NanoMQ Broker is started successfully!
+2026-01-28 12:27:37 [6680] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1111  nano_pipe_recv_cb: [DEBUG] Got msg 0x60e000016fc0 from Transport
+2026-01-28 12:27:37 [6680] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/mqtt_parser.c:1365  nano_msg_notify: client_id_test_001 online!
+2026-01-28 12:27:37 [6685] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:822  tcptran_pipe_recv_cb: LEAK_HUNT: Success path, clearing ptr 0x60e000020020
+2026-01-28 12:27:37 [6685] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1111  nano_pipe_recv_cb: [DEBUG] Got msg 0x60e000020020 from Transport
+2026-01-28 12:27:38 [6675] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1111  nano_pipe_recv_cb: [DEBUG] Got msg 0x60e000027020 from Transport
+2026-01-28 12:27:38 [6675] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/mqtt_parser.c:1365  nano_msg_notify: nanomq-c3cbedf5 online!
+2026-01-28 12:27:38 [6682] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:822  tcptran_pipe_recv_cb: LEAK_HUNT: Success path, clearing ptr 0x60e00002ffa0
+2026-01-28 12:27:38 [6682] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1111  nano_pipe_recv_cb: [DEBUG] Got msg 0x60e00002ffa0 from Transport
+2026-01-28 12:27:38 [6683] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:723  tcptran_pipe_recv_cb: nni aio recv error!! Connection shutdown
+
+2026-01-28 12:27:38 [6683] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1014  tcptran_pipe_recv_cb: LEAK_HUNT: Entering recv_error. p->rxmsg is (nil)
+2026-01-28 12:27:38 [6683] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1022  tcptran_pipe_recv_cb: LEAK_HUNT: p->rxmsg is NULL, cannot free!
+2026-01-28 12:27:38 [6683] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1031  tcptran_pipe_recv_cb: tcptran_pipe_recv_cb: recv_error rv: 139
+
+2026-01-28 12:27:38 [6683] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/mqtt_parser.c:1369  nano_msg_notify: nanomq-c3cbedf5 offline!
+2026-01-28 12:27:43 [6673] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:723  tcptran_pipe_recv_cb: nni aio recv error!! Connection shutdown
+
+2026-01-28 12:27:43 [6673] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1014  tcptran_pipe_recv_cb: LEAK_HUNT: Entering recv_error. p->rxmsg is (nil)
+2026-01-28 12:27:43 [6673] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1022  tcptran_pipe_recv_cb: LEAK_HUNT: p->rxmsg is NULL, cannot free!
+2026-01-28 12:27:43 [6673] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1031  tcptran_pipe_recv_cb: tcptran_pipe_recv_cb: recv_error rv: 139
+
+^C
+Broker exit(0).
+
+=================================================================
+==6667==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 160 byte(s) in 1 object(s) allocated from:
+    #0 0x7fbac32b8a06 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cc:153
+    #1 0x556c316261bc in nni_zalloc /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/platform/posix/posix_alloc.c:34
+    #2 0x556c315f370c in nni_msg_alloc /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:407
+    #3 0x556c318221a9 in tcptran_pipe_recv_cb /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:791
+    #4 0x556c31619786 in nni_taskq_thread /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/taskq.c:47
+    #5 0x556c3161bf4c in nni_thr_wrap /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/thread.c:94
+    #6 0x556c31631df8 in nni_plat_thr_main /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/platform/posix/posix_thread.c:266
+    #7 0x7fbac3041608 in start_thread /build/glibc-B3wQXB/glibc-2.31/nptl/pthread_create.c:477
+
+SUMMARY: AddressSanitizer: 160 byte(s) leaked in 1 allocation(s).
+
