@@ -9,6 +9,7 @@
 5. **Docker/**: Containerized reproduction environment used to reliably trigger and validate the vulnerability under controlled conditions.  
    Detailed build instructions and environment setup steps are provided in:  
    `Docker/Docker-Nanomq Build.md`
+6. **249asan_log.txt**: AddressSanitizer (ASAN) runtime log captured from NanoMQ v0.24.9, demonstrating the memory leak and related abnormal memory behavior.
 
 ## **Issue Body**
 
