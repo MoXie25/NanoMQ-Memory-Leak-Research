@@ -1,0 +1,276 @@
+ubuntu1@ubuntu:~/Desktop/mqttDataTest/Crash-test/nanomq/build$ ./nanomq/nanomq start --conf ./nanomq.conf
+path :/home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/build/nanomq/nanomq
+Set new conf path from env: (null)
+Abort finding default config path
+2026-02-14 10:46:08 [127266] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:446  nni_msg_alloc: [DEBUG] nni_msg_alloc CHECK: Ptr=0x60e000000200, StructSize(sizeof *m)=160, PayloadSize(sz)=0
+
+2026-02-14 10:46:08 [127266] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1416  nano_sock_setdb: [INIT_TRACE] 1. Enter nano_sock_setdb. s=0x61c0000005e8, nano_conf=0x61d000000080
+2026-02-14 10:46:08 [127266] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1433  nano_sock_setdb: [INIT_TRACE] 3. CHECK CONFIG: s->conf->sqlite.enable is 1 (1=True, 0=False)
+2026-02-14 10:46:08 [127266] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1437  nano_sock_setdb: [INIT_TRACE] 4. CHECK POINTER: s->db is 0x6060000014c0
+2026-02-14 10:46:08 [127266] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:1326  broker: NanoMQ (ver 0.24.9) Serving HTTP Server on http://(null):8081
+NanoMQ Broker is started successfully!
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:609  nano_pipe_init: [PIPE_INIT] 1. Enter nano_pipe_init. Pipe=0x61d00001fe80
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:631  nano_pipe_init: [PIPE_INIT] 2. Checking Logic: sqlite.enable=1, pipe->nano_qos_db=(nil)
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:639  nano_pipe_init: [PIPE_INIT] 3. Condition SKIPPED! (Because sqlite.enable is True)
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:640  nano_pipe_init: [PIPE_INIT] 4. WARNING: No initialization performed! DB remains: (nil)
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:446  nni_msg_alloc: [DEBUG] nni_msg_alloc CHECK: Ptr=0x60e000016fc0, StructSize(sizeof *m)=160, PayloadSize(sz)=0
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:665  nano_pipe_start: [PIPE_START] 1. Enter nano_pipe_start. is_sqlite_config=1, current_pipe_db=(nil)
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:676  nano_pipe_start: [PIPE_START] 2. NNG_SUPP_SQLITE NOT defined! Pointer assignment SKIPPED. db remains: (nil)
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1126  nano_pipe_recv_cb: [TRACE] 1. Enter nano_pipe_recv_cb. Pipe=0x61d000020180
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1141  nano_pipe_recv_cb: [TRACE] 3. Got msg=0x60e000016fc0
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1148  nano_pipe_recv_cb: [DEBUG] Got msg 0x60e000016fc0 from Transport
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1149  nano_pipe_recv_cb: [LIFE_CYCLE] PROTOCOL_ENTRY: msg 0x60e000016fc0
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1167  nano_pipe_recv_cb: [TRACE] 6. Switch Type: 0x20
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1219  nano_pipe_recv_cb: [TRACE] 7. Case PUBLISH/CONNACK. Cloning param.
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1295  nano_pipe_recv_cb: [TRACE] 13. Found Context 0x6100000002b0. Dispatching msg 0x60e000016fc0.
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:243  server_cb: [TRACE APP] 1. Enter RECV. Got Msg Pointer: 0x60e000016fc0
+
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:805  tcptran_pipe_recv_cb: Clean alloc (p->rxmsg was NULL)
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:272  server_cb: [TRACE APP] 4. AIO Success. Processing Msg: 0x60e000016fc0
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:510  server_cb: [TRACE CONN] 1 Sending CONNACK. Cloning Msg: 0x60e000016fc0
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:343  nni_msg_clone: [TRACE CLONE] Msg: 0x60e000016fc0 cloned! RefCount raised to: 2
+
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:446  nni_msg_alloc: [DEBUG] nni_msg_alloc CHECK: Ptr=0x60e000020020, StructSize(sizeof *m)=160, PayloadSize(sz)=23
+
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:813  tcptran_pipe_recv_cb: len的大小：SUCCESS: Allocated 23 bytes at address 0x60e000020020
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:817  tcptran_pipe_recv_cb: [LIFE_CYCLE] BORN: msg 0x60e000020020 allocated for pipe 0x61300000ffc0
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:843  tcptran_pipe_recv_cb: [LIFE_CYCLE] TRANSFER: msg 0x60e000020020 moved from pipe 0x61300000ffc0 to aio 0x61d0000203f0
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1126  nano_pipe_recv_cb: [TRACE] 1. Enter nano_pipe_recv_cb. Pipe=0x61d000020180
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1615  tcptran_pipe_send_start: [TRACE start_v4]  2 msg = 0x60e000016fc0
+
+
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1141  nano_pipe_recv_cb: [TRACE] 3. Got msg=0x60e000020020
+
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1148  nano_pipe_recv_cb: [DEBUG] Got msg 0x60e000020020 from Transport
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1149  nano_pipe_recv_cb: [LIFE_CYCLE] PROTOCOL_ENTRY: msg 0x60e000020020
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1167  nano_pipe_recv_cb: [TRACE] 6. Switch Type: 0x80
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/mqtt_parser.c:1365  nano_msg_notify: client_id_test_001 online!
+2026-02-14 10:46:14 [127282] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:695  nmq_tcptran_pipe_send_cb: [TRACE SPOT 1] TCP Transport Layer (Send CB) is freeing: 0x60e000016fc0
+
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1295  nano_pipe_recv_cb: [TRACE] 13. Found Context 0x6100000004b0. Dispatching msg 0x60e000020020.
+
+2026-02-14 10:46:14 [127282] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:516  nni_msg_free: [TRACE FREE] Msg: 0x60e000016fc0 | Ref: 2 -> 1
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:446  nni_msg_alloc: [DEBUG] nni_msg_alloc CHECK: Ptr=0x60e0000170a0, StructSize(sizeof *m)=160, PayloadSize(sz)=0
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:516  nni_msg_free: [TRACE FREE] Msg: 0x60e000016fc0 | Ref: 1 -> 0
+
+2026-02-14 10:46:14 [127282] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:522  nni_msg_free: [TRACE APP] 9. Msg: 0x60e000016fc0, RefCount: 2
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:522  nni_msg_free: [TRACE APP] 9. Msg: 0x60e000016fc0, RefCount: 1
+
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:243  server_cb: [TRACE APP] 1. Enter RECV. Got Msg Pointer: 0x60e000020020
+
+2026-02-14 10:46:14 [127282] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:544  nni_msg_free: 2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:272  server_cb: [TRACE APP] 4. AIO Success. Processing Msg: 0x60e000020020
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:527  nni_msg_free: [DEBUG] nni_msg_free CHECK: Actively Freeing Ptr=0x60e000016fc0
+[TRACE APP] 10. nni_msg_free: Ptr=0x60e000016fc0 RefCount dec to 1. Memory kept alive.
+
+
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1615  tcptran_pipe_send_start: [TRACE start_v4]  2 msg = 0x60e000020020
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:564  server_cb: [TRACE APP] 8. ZOMBIE WAIT! Msg: 0x60e0000170a0, RefCount: 1
+
+2026-02-14 10:46:14 [127280] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:854  nano_pipe_start: [PIPE_START_END] nano_pipe_start is finishing! rv=0, p->nano_qos_db=(nil), conn_param->nano_qos_db=(nil)
+2026-02-14 10:46:14 [127286] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:635  server_cb: [TRACE SPOT 2] Broker App Layer (Server CB) is freeing: 0x60e0000170a0
+
+2026-02-14 10:46:14 [127286] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:516  nni_msg_free: [TRACE FREE] Msg: 0x60e0000170a0 | Ref: 1 -> 0
+
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:695  nmq_tcptran_pipe_send_cb: [TRACE SPOT 1] TCP Transport Layer (Send CB) is freeing: 0x60e000020020
+
+2026-02-14 10:46:14 [127286] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:522  nni_msg_free: [TRACE APP] 9. Msg: 0x60e0000170a0, RefCount: 1
+
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:516  nni_msg_free: 2026-02-14 10:46:14 [127286] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:527  nni_msg_free: [DEBUG] nni_msg_free CHECK: Actively Freeing Ptr=0x60e0000170a0
+
+[TRACE FREE] Msg: 0x60e000020020 | Ref: 1 -> 0
+
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:522  nni_msg_free: [TRACE APP] 9. Msg: 0x60e000020020, RefCount: 1
+
+2026-02-14 10:46:14 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:527  nni_msg_free: [DEBUG] nni_msg_free CHECK: Actively Freeing Ptr=0x60e000020020
+
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:609  nano_pipe_init: [PIPE_INIT] 1. Enter nano_pipe_init. Pipe=0x61d00002f880
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:631  nano_pipe_init: [PIPE_INIT] 2. Checking Logic: sqlite.enable=1, pipe->nano_qos_db=(nil)
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:639  nano_pipe_init: [PIPE_INIT] 3. Condition SKIPPED! (Because sqlite.enable is True)
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:640  nano_pipe_init: [PIPE_INIT] 4. WARNING: No initialization performed! DB remains: (nil)
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:446  nni_msg_alloc: [DEBUG] nni_msg_alloc CHECK: Ptr=0x60e000027020, StructSize(sizeof *m)=160, PayloadSize(sz)=0
+
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:665  nano_pipe_start: [PIPE_START] 1. Enter nano_pipe_start. is_sqlite_config=1, current_pipe_db=(nil)
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:676  nano_pipe_start: [PIPE_START] 2. NNG_SUPP_SQLITE NOT defined! Pointer assignment SKIPPED. db remains: (nil)
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1126  nano_pipe_recv_cb: [TRACE] 1. Enter nano_pipe_recv_cb. Pipe=0x61d00002fb80
+
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1141  nano_pipe_recv_cb: [TRACE] 3. Got msg=0x60e000027020
+
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1148  nano_pipe_recv_cb: [DEBUG] Got msg 0x60e000027020 from Transport
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1149  nano_pipe_recv_cb: [LIFE_CYCLE] PROTOCOL_ENTRY: msg 0x60e000027020
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1167  nano_pipe_recv_cb: [TRACE] 6. Switch Type: 0x20
+
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1219  nano_pipe_recv_cb: [TRACE] 7. Case PUBLISH/CONNACK. Cloning param.
+
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1295  nano_pipe_recv_cb: [TRACE] 13. Found Context 0x6100000005b0. Dispatching msg 0x60e000027020.
+
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:243  server_cb: [TRACE APP] 1. Enter RECV. Got Msg Pointer: 0x60e000027020
+
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:272  server_cb: [TRACE APP] 4. AIO Success. Processing Msg: 0x60e000027020
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:805  tcptran_pipe_recv_cb: Clean alloc (p->rxmsg was NULL)
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:510  server_cb: [TRACE CONN] 1 Sending CONNACK. Cloning Msg: 0x60e000027020
+
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:343  nni_msg_clone: [TRACE CLONE] Msg: 0x60e000027020 cloned! RefCount raised to: 2
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:446  nni_msg_alloc: [DEBUG] nni_msg_alloc CHECK: Ptr=0x60e00002ffa0, StructSize(sizeof *m)=160, PayloadSize(sz)=54
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:813  tcptran_pipe_recv_cb: len的大小：SUCCESS: Allocated 54 bytes at address 0x60e00002ffa0
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:817  tcptran_pipe_recv_cb: [LIFE_CYCLE] BORN: msg 0x60e00002ffa0 allocated for pipe 0x61300001ff40
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:843  tcptran_pipe_recv_cb: [LIFE_CYCLE] TRANSFER: msg 0x60e00002ffa0 moved from pipe 0x61300001ff40 to aio 0x61d00002fdf0
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:446  nni_msg_alloc: [DEBUG] nni_msg_alloc CHECK: Ptr=0x60e000030080, StructSize(sizeof *m)=160, PayloadSize(sz)=0
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1126  nano_pipe_recv_cb: [TRACE] 1. Enter nano_pipe_recv_cb. Pipe=0x61d00002fb80
+
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1615  tcptran_pipe_send_start: [TRACE start_v4]  2 msg = 0x60e000027020
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1141  nano_pipe_recv_cb: [TRACE] 3. Got msg=0x60e00002ffa0
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1148  nano_pipe_recv_cb: [DEBUG] Got msg 0x60e00002ffa0 from Transport
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/mqtt_parser.c:1365  nano_msg_notify: nanomq-c3cbedf5 online!
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1149  nano_pipe_recv_cb: [LIFE_CYCLE] PROTOCOL_ENTRY: msg 0x60e00002ffa0
+2026-02-14 10:46:15 [127278] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:516  nni_msg_free: [TRACE FREE] Msg: 0x60e000030080 | Ref: 1 -> 0
+
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:446  nni_msg_alloc: [DEBUG] nni_msg_alloc CHECK: Ptr=0x60e000027100, StructSize(sizeof *m)=160, PayloadSize(sz)=0
+
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:516  nni_msg_free: [TRACE FREE] Msg: 0x60e000027020 | Ref: 2 -> 1
+
+2026-02-14 10:46:15 [127278] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:522  nni_msg_free: [TRACE APP] 9. Msg: 0x60e000030080, RefCount: 1
+
+2026-02-14 10:46:15 [127278] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:527  nni_msg_free: [DEBUG] nni_msg_free CHECK: Actively Freeing Ptr=0x60e000030080
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1167  nano_pipe_recv_cb: [TRACE] 6. Switch Type: 0x30
+
+2026-02-14 10:46:15 [127279] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:620  nmq_tcptran_pipe_send_cb:  send aio error Object closed
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1219  nano_pipe_recv_cb: [TRACE] 7. Case PUBLISH/CONNACK. Cloning param.
+
+2026-02-14 10:46:15 [127279] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:516  nni_msg_free: [TRACE FREE] Msg: 0x60e000027020 | Ref: 1 -> 0
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:522  nni_msg_free: [TRACE APP] 9. Msg: 0x60e000027020, RefCount: 2
+
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1295  nano_pipe_recv_cb: [TRACE] 13. Found Context 0x6100000006b0. Dispatching msg 0x60e00002ffa0.
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:243  server_cb: [TRACE APP] 1. Enter RECV. Got Msg Pointer: 0x60e00002ffa0
+
+2026-02-14 10:46:15 [127279] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:522  nni_msg_free: [TRACE APP] 9. Msg: 0x60e000027020, RefCount: 1
+
+2026-02-14 10:46:15 [127281] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:729  tcptran_pipe_recv_cb: nni aio recv error!! Connection shutdown
+
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:544  nni_msg_free: [TRACE APP] 10. nni_msg_free: Ptr=0x60e000027020 RefCount dec to 1. Memory kept alive.
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:272  server_cb: [TRACE APP] 4. AIO Success. Processing Msg: 0x60e00002ffa0
+
+2026-02-14 10:46:15 [127281] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1042  tcptran_pipe_recv_cb: [LIFE_CYCLE] ERROR_PATH: Entering error for pipe 0x61300001ff40, current p->rxmsg is (nil)
+2026-02-14 10:46:15 [127281] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1059  tcptran_pipe_recv_cb: tcptran_pipe_recv_cb: recv_error rv: 139
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:564  server_cb: [TRACE APP] 8. ZOMBIE WAIT! Msg: 0x60e000027100, RefCount: 1
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:456  server_cb: 2026-02-14 10:46:15 [127279] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:527  nni_msg_free: [DEBUG] nni_msg_free CHECK: Actively Freeing Ptr=0x60e000027020
+
+[TRACE APP] 5. Processing PUBLISH logic. Msg: 0x60e00002ffa0
+
+2026-02-14 10:46:15 [127279] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:503  nni_msg_free: [DEBUG] Finish  clean
+
+2026-02-14 10:46:15 [127282] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:635  server_cb: [TRACE SPOT 2] Broker App Layer (Server CB) is freeing: 0x60e000027100
+
+2026-02-14 10:46:15 [127285] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1126  nano_pipe_recv_cb: [TRACE] 1. Enter nano_pipe_recv_cb. Pipe=0x61d00002fb80
+
+
+2026-02-14 10:46:15 [127282] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:516  nni_msg_free: [TRACE FREE] Msg: 0x60e000027100 | Ref: 1 -> 0
+
+2026-02-14 10:46:15 [127279] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/mqtt_parser.c:1369  nano_msg_notify: 2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:465  server_cb: nanomq-c3cbedf5 offline![TRACE APP] 6. handle_pub returned: 0 (0 is SUCCESS)
+2026-02-14 10:46:15 [127285] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1130  nano_pipe_recv_cb: [TRACE] 2. AIO Result Error: 139. Returning.Pipe=0x61d00002fb80
+
+
+
+2026-02-14 10:46:15 [127273] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:854  nano_pipe_start: [PIPE_START_END] nano_pipe_start is finishing! rv=0, p->nano_qos_db=(nil), conn_param->nano_qos_db=(nil)
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:498  server_cb: [TRACE APP] 7. handle_pub SUCCESS! Falling out of if-block without free?
+
+2026-02-14 10:46:15 [127282] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:522  nni_msg_free: [TRACE APP] 9. Msg: 0x60e000027100, RefCount: 1
+
+2026-02-14 10:46:15 [127282] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:527  nni_msg_free: [DEBUG] nni_msg_free CHECK: Actively Freeing Ptr=0x60e000027100
+
+2026-02-14 10:46:15 [127279] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:446  nni_msg_alloc: [DEBUG] nni_msg_alloc CHECK: Ptr=0x60e000036fa0, StructSize(sizeof *m)=160, PayloadSize(sz)=0
+
+2026-02-14 10:46:15 [127287] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:243  server_cb: [TRACE APP] 1. Enter RECV. Got Msg Pointer: 0x60e000036fa0
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:564  server_cb: [TRACE APP] 8. ZOMBIE WAIT! Msg: 0x60e00002ffa0, RefCount: 1
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:586  server_cb: [TRACE Clone] 1 WAIT -PUBLISH Sending smsg. Cloning Msg: 0x60e00002ffa0
+
+2026-02-14 10:46:15 [127287] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:272  server_cb: [TRACE APP] 4. AIO Success. Processing Msg: 0x60e000036fa0
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:343  nni_msg_clone: [TRACE CLONE] Msg: 0x60e00002ffa0 cloned! RefCount raised to: 2
+
+2026-02-14 10:46:15 [127287] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:564  server_cb: [TRACE APP] 8. ZOMBIE WAIT! Msg: 0x60e000036fa0, RefCount: 1
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1615  tcptran_pipe_send_start: [TRACE start_v4]  2 msg = 0x60e00002ffa0
+
+2026-02-14 10:46:15 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:635  server_cb: [TRACE SPOT 2] Broker App Layer (Server CB) is freeing: 0x60e000036fa0
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1253  nmq_pipe_send_start_v4: [TRACE CLONE] 2 . Cloning Msg: 0x60e00002ffa0
+
+2026-02-14 10:46:15 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:516  nni_msg_free: [TRACE FREE] Msg: 0x60e000036fa0 | Ref: 1 -> 0
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:343  nni_msg_clone: [TRACE CLONE] Msg: 0x60e00002ffa0 cloned! RefCount raised to: 3
+
+2026-02-14 10:46:15 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:522  nni_msg_free: [TRACE APP] 9. Msg: 0x60e000036fa0, RefCount: 1
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/supplemental/mqtt/mqtt_qos_db_api.c:10  nni_qos_db_set: [LEAK_TRACE] 1 Enter nni_qos_db_set: is_sqlite=1, db=(nil), pipe_id=1805785567, packet_id=1, msg=0x60e00002ffa0
+2026-02-14 10:46:15 [127284] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:527  nni_msg_free: [DEBUG] nni_msg_free CHECK: Actively Freeing Ptr=0x60e000036fa0
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/supplemental/mqtt/mqtt_qos_db_api.c:13  nni_qos_db_set: [LEAK_TRACE] 2 Enter nni_qos_db_set: is_sqlite=1, db=(nil), pipe_id=1805785567, packet_id=1, msg=0x60e00002ffa0
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nanomq/apps/broker.c:635  server_cb: [TRACE SPOT 2] Broker App Layer (Server CB) is freeing: 0x60e00002ffa0
+
+2026-02-14 10:46:15 [127272] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:695  nmq_tcptran_pipe_send_cb: [TRACE SPOT 1] TCP Transport Layer (Send CB) is freeing: 0x60e00002ffa0
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:516  nni_msg_free: [TRACE FREE] Msg: 0x60e00002ffa0 | Ref: 3 -> 2
+
+2026-02-14 10:46:15 [127272] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:516  nni_msg_free: [TRACE FREE] Msg: 0x60e00002ffa0 | Ref: 2 -> 1
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:522  nni_msg_free: [TRACE APP] 9. Msg: 0x60e00002ffa0, RefCount: 3
+
+2026-02-14 10:46:15 [127272] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:522  nni_msg_free: [TRACE APP] 9. Msg: 0x60e00002ffa0, RefCount: 2
+
+2026-02-14 10:46:15 [127275] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:544  nni_msg_free: [TRACE APP] 10. nni_msg_free: Ptr=0x60e00002ffa0 RefCount dec to 2. Memory kept alive.
+
+2026-02-14 10:46:15 [127272] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:544  nni_msg_free: [TRACE APP] 10. nni_msg_free: Ptr=0x60e00002ffa0 RefCount dec to 1. Memory kept alive.
+
+2026-02-14 10:46:20 [127274] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:729  tcptran_pipe_recv_cb: nni aio recv error!! Connection shutdown
+
+2026-02-14 10:46:20 [127274] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1042  tcptran_pipe_recv_cb: [LIFE_CYCLE] ERROR_PATH: Entering error for pipe 0x61300000ffc0, current p->rxmsg is (nil)
+2026-02-14 10:46:20 [127274] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:1059  tcptran_pipe_recv_cb: tcptran_pipe_recv_cb: recv_error rv: 139
+
+2026-02-14 10:46:20 [127277] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1126  nano_pipe_recv_cb: [TRACE] 1. Enter nano_pipe_recv_cb. Pipe=0x61d000020180
+
+2026-02-14 10:46:20 [127277] WARN  /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/protocol/mqtt/nmq_mqtt.c:1130  nano_pipe_recv_cb: [TRACE] 2. AIO Result Error: 139. Returning.Pipe=0x61d000020180
+
+^C
+Broker exit(0).
+
+=================================================================
+==127266==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 160 byte(s) in 1 object(s) allocated from:
+    #0 0x7fea5bb06a06 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cc:153
+    #1 0x5614cc24b0cc in nni_zalloc /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/platform/posix/posix_alloc.c:34
+    #2 0x5614cc218ccc in nni_msg_alloc /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/message.c:418
+    #3 0x5614cc447ac2 in tcptran_pipe_recv_cb /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/sp/transport/mqtt/broker_tcp.c:807
+    #4 0x5614cc23e696 in nni_taskq_thread /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/taskq.c:47
+    #5 0x5614cc240e5c in nni_thr_wrap /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/core/thread.c:94
+    #6 0x5614cc256d08 in nni_plat_thr_main /home/ubuntu1/Desktop/mqttDataTest/Crash-test/nanomq/nng/src/platform/posix/posix_thread.c:266
+    #7 0x7fea5b88f608 in start_thread /build/glibc-B3wQXB/glibc-2.31/nptl/pthread_create.c:477
+
+SUMMARY: AddressSanitizer: 160 byte(s) leaked in 1 allocation(s).
