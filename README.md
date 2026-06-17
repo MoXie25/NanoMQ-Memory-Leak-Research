@@ -1,3 +1,26 @@
+# CVE-2026-36590: Denial of Service in EMQ NanoMQ v0.24.9
+
+This repository contains the public advisory and technical analysis for CVE-2026-36590, a denial-of-service vulnerability affecting EMQ NanoMQ v0.24.9.
+
+## Advisory Information
+
+* CVE ID: CVE-2026-36590
+* Vendor/Project: EMQ / NanoMQ
+* Product: NanoMQ
+* Affected Version: v0.24.9
+* Vulnerability Type: Denial of Service / Resource Exhaustion
+* Affected Component: `broker_tcp.c` / `nni_qos_db_set`
+* CWE: CWE-772, CWE-400
+* Public Disclosure Date: 2026-06-17
+
+## Summary
+
+When NanoMQ v0.24.9 is built without SQLite support while `sqlite.enable` is configured as `true`, the QoS database pointer may remain `NULL`. During MQTT QoS message handling, `nni_qos_db_set` may return early without releasing a cloned message reference. Repeated QoS > 0 MQTT PUBLISH messages may cause continuous memory consumption, eventually leading to denial of service.
+
+## Mitigation
+
+Users should restrict access to NanoMQ instances, avoid exposing MQTT services to untrusted clients, and avoid enabling SQLite persistence in builds without SQLite support. The vendor should add startup validation for SQLite configuration and release the message reference in the `db == NULL` branch of `nni_qos_db_set`.
+
 # NanoMQ-Memory-Leak-Research
 
 ### **Attachments**
