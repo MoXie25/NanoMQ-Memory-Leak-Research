@@ -15,7 +15,7 @@ The NanoMQ team has disputed this issue and considers it configuration-related. 
 * Product: NanoMQ
 * Affected Version: v0.24.9
 * Vulnerability Type: Denial of Service / Resource Exhaustion
-* Affected Component: `broker_tcp.c` / `nni_qos_db_set`
+* Affected Component: `/nanomq/nng/src/supplemental/mqtt/mqtt_qos_db_api.c`/ `nni_qos_db_set`
 * CWE: CWE-772, CWE-400
 * Public Disclosure Date: 2026-06-17
 
@@ -98,7 +98,7 @@ Tracing the execution flow revealed why the 3rd Free was missing:
 2. **The Defective Logic (The "Early Return")**:
 When the message (Ref=3) enters `nni_qos_db_set` for storage, the function checks for the NULL pointer:
 ```c
-// File: nng/src/sp/transport/mqtt/broker_tcp.c
+// File: /nanomq/nng/src/supplemental/mqtt/mqtt_qos_db_api.c
 void nni_qos_db_set(..., void *db, ..., nng_msg *msg) {
     if (db == NULL) {
         // CRITICAL FLAW:
