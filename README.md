@@ -2,6 +2,12 @@
 
 This repository contains the public advisory and technical analysis for CVE-2026-36590, a denial-of-service vulnerability affecting EMQ NanoMQ v0.24.9.
 
+## Review Note
+
+This repository is public to provide an accessible technical reference for CVE review. The final classification of CVE-2026-36590 will be determined by the CVE Team or the relevant CNA.
+
+The NanoMQ team has disputed this issue and considers it configuration-related. This repository focuses on the technical evidence, including reproduction materials, ASAN results, runtime logs, and source-code analysis.
+
 ## Advisory Information
 
 * CVE ID: CVE-2026-36590
@@ -17,6 +23,21 @@ This repository contains the public advisory and technical analysis for CVE-2026
 
 When NanoMQ v0.24.9 is built without SQLite support while `sqlite.enable` is configured as `true`, the QoS database pointer may remain `NULL`. During MQTT QoS message handling, `nni_qos_db_set` may return early without releasing a cloned message reference. Repeated QoS > 0 MQTT PUBLISH messages may cause continuous memory consumption, eventually leading to denial of service.
 
+
+## Why This Issue Still Requires Review
+
+The issue depends on a non-default runtime configuration, but the following facts show why it still requires further review:
+
+1. NanoMQ accepts the runtime configuration and continues running, instead of reporting that SQLite support is not available in the current build.
+
+2. This configuration mismatch can happen in practice. A user may build NanoMQ with the normal build command, but later copy or enable the SQLite persistence section from an example configuration file.
+
+3. The affected code path does not fully validate this inconsistent state. When the runtime configuration treats SQLite as enabled but the database pointer is `NULL`, `nni_qos_db_set()` returns early without releasing the passed message object.
+
+4. After this configuration is accepted, the issue can be triggered by remote MQTT traffic. Repeated QoS > 0 PUBLISH messages can enter the affected path and cause accumulated memory leaks.
+
+5. ASAN tests with 1, 50, and 500 reproduction rounds show that the leaked bytes and allocations increase with the number of trigger attempts. This suggests that the issue is input-count-dependent, rather than a one-time small leak.
+
 ## Mitigation
 
 Users should restrict access to NanoMQ instances, avoid exposing MQTT services to untrusted clients, and avoid enabling SQLite persistence in builds without SQLite support. The vendor should add startup validation for SQLite configuration and release the message reference in the `db == NULL` branch of `nni_qos_db_set`.
@@ -31,10 +52,10 @@ Users should restrict access to NanoMQ instances, avoid exposing MQTT services t
 4.  **runtime_logs.log**: Instrumentation logs demonstrating the reference count anomaly.
 5. **Docker/**: Containerized reproduction environment used to reliably trigger and validate the vulnerability under controlled conditions.  
    Detailed build instructions and environment setup steps are provided in:  
-   `Docker/Docker-Nanomq Build.md`
+   `Docker/Docker_Reproduction_Guide.md`
 6. **249asan_log.txt**: AddressSanitizer (ASAN) runtime log captured from NanoMQ v0.24.9, demonstrating the memory leak and related abnormal memory behavior.
 
-## **Issue Body**
+## **Technical Analysis Summary**
 
 **Summary**
 This repository contains the Proof of Concept (PoC) and detailed analysis for a memory leak vulnerability found in NanoMQ. The issue allows remote attackers to cause a Denial of Service (DoS) by exhausting system memory via specific QoS MQTT messages.
